@@ -14,6 +14,42 @@ router.get('/', (req, res) => {
       });
   });
 
+  router.get('/:id', (req, res) => {
+    const { id } = req.params;
+  
+    Projects.findById(id)
+      .then(project => {
+        if (project) {
+          res.json(project);
+        } else {
+          res.status(404).json({ message: 'Could not find project with given id.' })
+        }
+      })
+      .catch(err => {
+        res.status(500).json({ message: 'Failed to get project' });
+      });
+  });
+
+  router.get('/:id/instructions', (req, res) => {
+    const { id } = req.params;
+  
+    Projects.findProjects(id)
+      .then(instruction => {
+        if (instruction.length) {
+          res.json(instruction);
+        } else {
+          res.status(404).json({ message: 'Could not find instructions for given project' })
+        }
+      })
+      .catch(err => {
+        res.status(500).json({ message: 'Failed to get instructions' });
+      });
+  });
+  
+
+
+
+
   router.post('/', (req, res) => {
     const projectData = req.body;
   

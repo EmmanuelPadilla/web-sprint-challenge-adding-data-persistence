@@ -4,7 +4,6 @@ module.exports = {
     find,
     findById,
     add
-    
   };
 
 
@@ -20,3 +19,5 @@ module.exports = {
     const [id] = await db("resourse").insert(resourse);
     return db("resourse").where({ id }).first()
   }
+
+ 
