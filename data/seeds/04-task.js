@@ -1,6 +1,6 @@
 
 exports.seed = function(knex) {
-  return knex('project').insert([
+  return knex('task').insert([
    {id: 1, sequence: 1, instruction: 'place nail on wall where picture will go', completed: 0, project_id:1},
    {id: 2, sequence: 2, instruction: 'use hammer to persuade it into place', completed: 0, project_id:1},
    {id: 3, sequence: 3, instruction: 'hang picture on nail', completed: 0, project_id:1},

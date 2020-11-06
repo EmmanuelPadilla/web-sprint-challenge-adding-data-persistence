@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema
     .createTable('project', tbl =>{
-        tbl.increments('project_id')
+        tbl.increments()
         tbl.string('project_name', 128).notNullable()
         tbl.string('description')
         tbl.boolean('completed').defaultTo(0)
@@ -34,7 +34,7 @@ exports.up = function(knex) {
         tbl.integer('sequence')
             .unsigned()
         tbl.string("instruction")
-        tbl.boolean('compleated').defaultTo(0)
+        tbl.boolean('completed').defaultTo(0)
         tbl.integer('project_id')
         .unsigned()
         .notNullable()
