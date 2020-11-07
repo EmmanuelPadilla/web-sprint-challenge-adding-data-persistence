@@ -24,7 +24,7 @@ module.exports = {
   
   function findProjects(id) {
     return db("task as t")
-      .join( "t.id", "project as p", "t._id")
-      .select("t.instruction", "t.project_id", "p.project_name")
-      .where("project.id", id);
+      .join( "project as p", "p.id", "t.id")
+      .select("p.project_name", "t.instruction", "t.project_id" )
+      .where("p.id", id);
   }
